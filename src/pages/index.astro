@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <Base title="Home">
   <section class="frame" style="padding-top: 40px;">
@@ -20,9 +21,9 @@ import Base from '../layouts/Base.astro';
           Indian naval vessels to sense the atmosphere directly.
         </p>
         <div style="margin-top: 28px; display: flex; gap: 24px; font-size: 0.95rem;">
-          <a href="/research/">Research &rarr;</a>
-          <a href="/campaigns/">Field campaigns &rarr;</a>
-          <a href="/publications/">CV &amp; publications &rarr;</a>
+          <a href={`${base}research/`}>Research &rarr;</a>
+          <a href={`${base}campaigns/`}>Field campaigns &rarr;</a>
+          <a href={`${base}publications/`}>CV &amp; publications &rarr;</a>
         </div>
       </div>
     </div>
@@ -66,7 +67,7 @@ import Base from '../layouts/Base.astro';
             INS Rajali, the ORV Sagar Kanya and ORV Sagar Nidhi, coastal Rameshwaram,
             and the UC Davis Atmospheric Boundary Layer Wind Tunnel &mdash;
             an interactive map of each deployment is coming to
-            <a href="/campaigns/">the campaigns page</a>.
+            <a href={`${base}campaigns/`}>the campaigns page</a>.
           </p>
         </div>
       </div>

@@ -5,5 +5,5 @@ import { defineConfig } from 'astro/config';
 // - If deploying to username.github.io/repo-name: base '/repo-name'
 export default defineConfig({
   site: 'https://vivek23s.github.io',
-  base: '/vivek-shah-portfolio',
+  base: '/vivek-shah-portfolio/',
 });

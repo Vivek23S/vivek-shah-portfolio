@@ -1,15 +1,16 @@
 ---
+const base = import.meta.env.BASE_URL;
 const links = [
-  { href: '/research/', label: 'Research' },
-  { href: '/campaigns/', label: 'Campaigns' },
-  { href: '/projects/', label: 'Projects' },
-  { href: '/publications/', label: 'Publications' },
-  { href: '/gallery/', label: 'Gallery' },
+  { href: `${base}research/`, label: 'Research' },
+  { href: `${base}campaigns/`, label: 'Campaigns' },
+  { href: `${base}projects/`, label: 'Projects' },
+  { href: `${base}publications/`, label: 'Publications' },
+  { href: `${base}gallery/`, label: 'Gallery' },
 ];
 ---
 <header class="frame" style="padding: 24px 32px 0;">
   <div style="display:flex; justify-content:space-between; align-items:center;">
-    <a href="/" style="font-family: var(--font-display); font-weight: 600; font-size: 1rem; color: var(--ink);">Vivek Shah</a>
+    <a href={base} style="font-family: var(--font-display); font-weight: 600; font-size: 1rem; color: var(--ink);">Vivek Shah</a>
     <nav class="site-nav">
       {links.map(l => <a href={l.href}>{l.label}</a>)}
     </nav>

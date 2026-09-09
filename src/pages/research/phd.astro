@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <Base title="PhD Research">
   <section class="frame" style="padding-top: 40px;">
@@ -61,7 +62,7 @@ import Base from '../../layouts/Base.astro';
 
         <p style="font-size: 0.9rem; color: var(--slate);">
           Accepted for AIAA SciTech 2027. Full bandwidth analysis and flight-validation
-          results are in progress &mdash; see <a href="/publications/">publications</a> for
+          results are in progress &mdash; see <a href={`${base}publications/`}>publications</a> for
           the latest version.
         </p>
       </div>
