@@ -1,0 +1,81 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sites = [
+  {
+    name: 'INS Rajali',
+    lat: 15.4167, lng: 79.9500,
+    tag: 'M.S. · testing',
+    note: 'Land-based testing and validation of the hexacopter before ship deployment.',
+  },
+  {
+    name: 'ORV Sagar Kanya',
+    lat: 15.0, lng: 68.0,
+    tag: 'M.S. · Arabian Sea',
+    note: 'Ship-based takeoff and landing trials aboard the ORV Sagar Kanya.',
+  },
+  {
+    name: 'ORV Sagar Nidhi',
+    lat: 14.5, lng: 88.0,
+    tag: 'M.S. · Bay of Bengal',
+    note: 'Atmospheric data collection missions up to 2 km altitude.',
+  },
+  {
+    name: 'Rameshwaram',
+    lat: 9.2876, lng: 79.3129,
+    tag: 'M.S. · coastal',
+    note: 'Coastal atmospheric sampling missions.',
+  },
+  {
+    name: 'UCD-ABLWT',
+    lat: 38.5382, lng: -121.7617,
+    tag: 'PhD · wind tunnel',
+    note: 'UC Davis Atmospheric Boundary Layer Wind Tunnel — propeller drag characterization.',
+  },
+];
+---
+<Base title="Field campaigns">
+  <section class="frame" style="padding-top: 40px;">
+    <div class="grid-margin">
+      <div class="margin-col">FIELD LOG</div>
+      <div>
+        <h1 style="font-size: 2rem;">Everywhere the flying happened</h1>
+        <p style="color: var(--slate); margin-top: 12px; max-width: 520px;">
+          Click a marker for details on each deployment. Coordinates for the ship-based
+          sites are approximate mission locations, not exact GPS logs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="frame">
+    <div id="map" style="height: 460px; border-radius: 6px; border: 0.5px solid var(--rule);"></div>
+  </section>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" define:vars={{ sites }}>
+    const map = L.map('map', { scrollWheelZoom: false }).setView([20, 60], 2);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+      maxZoom: 18,
+    }).addTo(map);
+
+    const teal = '#2F7A72';
+
+    sites.forEach((s) => {
+      const marker = L.circleMarker([s.lat, s.lng], {
+        radius: 7,
+        color: teal,
+        weight: 2,
+        fillColor: teal,
+        fillOpacity: 0.5,
+      }).addTo(map);
+
+      marker.bindPopup(
+        `<strong>${s.name}</strong><br/><span style="color:#5C6B78;font-size:12px;">${s.tag}</span><p style="margin:6px 0 0;font-size:13px;">${s.note}</p>`
+      );
+    });
+  </script>
+</Base>

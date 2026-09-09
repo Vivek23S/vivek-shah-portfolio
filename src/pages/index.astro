@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Home">
+  <section class="frame" style="padding-top: 40px;">
+    <div class="grid-margin">
+      <div class="margin-col">
+        02 / 2026<br/>
+        Chennai &rarr; Santa Cruz<br/>
+        M.S. &rarr; PhD
+      </div>
+      <div>
+        <h1>Vivek Shah</h1>
+        <p style="color: var(--teal); font-weight: 500; font-size: 1.05rem; margin-top: 8px;">
+          Estimating wind, from the air, one rotor at a time.
+        </p>
+        <p style="margin-top: 20px; color: var(--slate); max-width: 480px;">
+          PhD student in Applied Math at UC Santa Cruz, working on model-based wind estimation
+          for small uncrewed aircraft. Previously an M.S. at IIT Madras, flying hexacopters off
+          Indian naval vessels to sense the atmosphere directly.
+        </p>
+        <div style="margin-top: 28px; display: flex; gap: 24px; font-size: 0.95rem;">
+          <a href="/research/">Research &rarr;</a>
+          <a href="/campaigns/">Field campaigns &rarr;</a>
+          <a href="/publications/">CV &amp; publications &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="horizon"></div>
+
+  <section class="frame">
+    <div class="grid-margin">
+      <div></div>
+      <div style="display: flex; gap: 32px; flex-wrap: wrap;">
+        <div>
+          <div class="stat">2.5&ndash;5.5 kg</div>
+          <div class="stat-label">inertia range studied, PhD</div>
+        </div>
+        <div>
+          <div class="stat">5 km</div>
+          <div class="stat-label">max altitude, M.S. hexacopter</div>
+        </div>
+        <div>
+          <div class="stat">4</div>
+          <div class="stat-label">field campaign sites</div>
+        </div>
+        <div>
+          <div class="stat">60 min</div>
+          <div class="stat-label">longest flight endurance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="horizon"></div>
+
+  <section class="dusk">
+    <div class="frame">
+      <div class="grid-margin">
+        <div class="margin-col">FIELD LOG</div>
+        <div>
+          <h2>Where the flying happened</h2>
+          <p style="color: #A9B7BF; margin-top: 12px; max-width: 480px;">
+            INS Rajali, the ORV Sagar Kanya and ORV Sagar Nidhi, coastal Rameshwaram,
+            and the UC Davis Atmospheric Boundary Layer Wind Tunnel &mdash;
+            an interactive map of each deployment is coming to
+            <a href="/campaigns/">the campaigns page</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

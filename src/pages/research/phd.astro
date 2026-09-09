@@ -1,0 +1,70 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="PhD Research">
+  <section class="frame" style="padding-top: 40px;">
+    <div class="grid-margin">
+      <div class="margin-col">PhD RESEARCH<br/>UC SANTA CRUZ<br/>2025&ndash;present</div>
+      <div>
+        <h1 style="font-size: 2rem;">How vehicle inertia shapes wind estimation</h1>
+
+        <p style="margin-top: 20px; max-width: 560px;">
+          My M.S. work measured wind directly. This work estimates it indirectly &mdash;
+          from how a multirotor's own motion responds to the air around it. Prior work
+          shows that estimation accuracy improves with model fidelity, and that aircraft
+          more sensitive to aerodynamic drag give better estimates of time-varying wind.
+          That creates a tradeoff: heavier vehicles respond more slowly, but need higher
+          rotor speeds to hover, which increases drag sensitivity. This project asks which
+          effect wins.
+        </p>
+
+        <h3 style="margin-top: 32px;">Three ways in</h3>
+
+        <div style="margin-top: 16px;">
+          <h4 style="font-family: var(--font-display); font-size: 1rem; margin-bottom: 6px;">Software-in-the-loop simulation</h4>
+          <p style="max-width: 560px; color: var(--slate);">
+            Characterizes vehicle-level dynamic response across a range of simulated
+            inertia configurations, using broadband excitation and system identification
+            to compare model bandwidth as mass changes.
+          </p>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <h4 style="font-family: var(--font-display); font-size: 1rem; margin-bottom: 6px;">Wind tunnel testing</h4>
+          <p style="max-width: 560px; color: var(--slate);">
+            At the UC Davis Atmospheric Boundary Layer Wind Tunnel, propeller drag is
+            characterized across combinations of rotor speed, wind speed and turbulence
+            intensity &mdash; measuring aerodynamic loads, current, voltage, PWM command and
+            propeller speed.
+          </p>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <h4 style="font-family: var(--font-display); font-size: 1rem; margin-bottom: 6px;">Flight validation</h4>
+          <p style="max-width: 560px; color: var(--slate);">
+            Real flight tests vary vehicle mass by adding weight in the battery bay,
+            keeping airframe geometry and center of mass nearly unchanged, to confirm
+            the simulated trends hold in practice.
+          </p>
+        </div>
+
+        <h3 style="margin-top: 32px;">Early results</h3>
+        <p style="max-width: 560px;">
+          Across a 2.5&ndash;5.5 kg mass range on a quadcopter platform, plunge damping
+          decreases monotonically as mass increases &mdash; meaning heavier vehicles are
+          less translationally responsive, as expected. Wind tunnel characterization also
+          confirmed a spanwise turbulence-intensity gradient in the test section, suitable
+          for studying propeller response under varying inflow.
+        </p>
+
+        <div class="horizon" style="margin: 32px 0;"></div>
+
+        <p style="font-size: 0.9rem; color: var(--slate);">
+          Accepted for AIAA SciTech 2027. Full bandwidth analysis and flight-validation
+          results are in progress &mdash; see <a href="/publications/">publications</a> for
+          the latest version.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

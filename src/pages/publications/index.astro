@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Publications & CV">
+  <section class="frame" style="padding-top: 40px;">
+    <div class="grid-margin">
+      <div class="margin-col">PUBLICATIONS</div>
+      <div>
+        <h1 style="font-size: 2rem;">Publications &amp; CV</h1>
+
+        <div style="margin-top: 24px;">
+          <h2 style="font-size: 1.1rem;">
+            Effects of vehicle inertia on model-based wind estimation for multirotor sUASs
+          </h2>
+          <p style="color: var(--slate); margin-top: 6px;">AIAA SciTech Forum, 2027 &middot; accepted</p>
+          <p style="margin-top: 10px; max-width: 540px;">
+            Investigates the tradeoff between slower dynamic response and increased drag
+            sensitivity as multirotor mass increases, using SITL simulation, wind tunnel
+            testing, and flight validation.
+          </p>
+        </div>
+
+        <div class="horizon" style="margin: 32px 0;"></div>
+
+        <h2 style="font-size: 1.1rem;">CV</h2>
+        <p style="margin-top: 10px;">
+          <a href="/cv-vivek-shah.pdf">Download the latest CV (PDF) &rarr;</a>
+        </p>
+        <p style="font-size: 0.85rem; color: var(--slate); margin-top: 8px;">
+          Drop your current CV into <code>public/cv-vivek-shah.pdf</code> and this link
+          will work as-is.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

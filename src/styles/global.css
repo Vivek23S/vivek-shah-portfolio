@@ -1,0 +1,146 @@
+/* ---- Design tokens ---- */
+:root {
+  --paper: #F1F3EE;
+  --paper-dim: #E7E9E2;
+  --rule: #C7CAC2;
+  --ink: #16232E;
+  --slate: #5C6B78;
+  --teal: #2F7A72;
+  --brass: #B8863D;
+  --dusk: #101820;
+  --dusk-ink: #E8ECEE;
+  --dusk-rule: #2B3742;
+
+  --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --measure: 640px;
+  --margin-col: 140px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--ink);
+}
+
+h1 { font-size: 2.4rem; line-height: 1.15; }
+h2 { font-size: 1.5rem; line-height: 1.25; }
+h3 { font-size: 1.1rem; }
+
+p {
+  margin: 0 0 1rem;
+  max-width: var(--measure);
+}
+
+a {
+  color: var(--teal);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Layout shell: narrow margin column + wide content column ---- */
+.frame {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.grid-margin {
+  display: grid;
+  grid-template-columns: var(--margin-col) 1fr;
+  gap: 28px;
+}
+
+@media (max-width: 720px) {
+  .grid-margin {
+    grid-template-columns: 1fr;
+  }
+  .margin-col {
+    border-right: none !important;
+    border-bottom: 0.5px solid var(--rule);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+.margin-col {
+  border-right: 0.5px solid var(--rule);
+  padding-right: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--slate);
+  line-height: 1.8;
+}
+
+/* ---- Horizon rule: recurring section-break device ---- */
+.horizon {
+  height: 0.5px;
+  background: var(--brass);
+  margin: 0;
+}
+
+/* ---- Nav ---- */
+.site-nav {
+  display: flex;
+  gap: 28px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.site-nav a {
+  color: var(--ink);
+}
+.site-nav a:hover {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+/* ---- Stat row ---- */
+.stat {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--slate);
+  font-family: var(--font-body);
+}
+
+/* ---- Dusk section (used for the field/interactive material) ---- */
+.dusk {
+  background: var(--dusk);
+  color: var(--dusk-ink);
+}
+.dusk h1, .dusk h2, .dusk h3 { color: var(--dusk-ink); }
+.dusk .margin-col { color: #8FA0AC; border-right-color: var(--dusk-rule); }
+.dusk a { color: #6FCABD; }
+.dusk .horizon { background: var(--brass); }
+
+section {
+  padding: 56px 0;
+}

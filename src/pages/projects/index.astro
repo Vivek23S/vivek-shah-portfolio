@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const projects = [
+  {
+    title: 'Characterization of the wind tunnel',
+    when: 'Jan–May 2023 · Coursework',
+    body: 'Measured pressure, velocity, temperature and flow rate with a pitot tube across the test section, then validated the results in ANSYS-Fluent.',
+  },
+  {
+    title: 'Flow visualization over an airfoil',
+    when: 'Jan–May 2023 · Coursework',
+    body: 'Smoke-visualized flow over a NACA 0012 airfoil across varying wind speed, angle of attack and Reynolds number, cross-checked against CFD.',
+  },
+  {
+    title: 'Finite difference solver',
+    when: 'Jul–Dec 2022 · Coursework',
+    body: 'A from-scratch finite difference solver for Laplace\u2019s equation with Dirichlet boundary conditions, implementing Jacobi and Gauss–Seidel schemes.',
+  },
+  {
+    title: 'Design of a light general aviation aircraft',
+    when: 'Dec 2019–May 2020 · B.Eng. final year project',
+    body: 'Conceptual design of a private business jet — weight estimation, wing optimization for L/D, fuselage and empennage CFD, and an engine sized from first-principles performance calculations rather than an off-the-shelf rating.',
+  },
+  {
+    title: 'Wing box structural evaluation, Su-30 MKI',
+    when: 'Jun 2019 · HAL internship',
+    body: 'Built a detailed 3D wing box model and ran a full FEM workflow — HyperMesh for meshing, Nastran for stress/strain/deformation analysis, Patran for post-processing.',
+  },
+];
+---
+<Base title="Projects">
+  <section class="frame" style="padding-top: 40px;">
+    <div class="grid-margin">
+      <div class="margin-col">PROJECTS</div>
+      <div>
+        <h1 style="font-size: 2rem;">Coursework, internships, and things I built along the way</h1>
+      </div>
+    </div>
+  </section>
+
+  {projects.map((p) => (
+    <>
+      <div class="horizon"></div>
+      <section class="frame">
+        <div class="grid-margin">
+          <div class="margin-col">{p.when}</div>
+          <div>
+            <h2 style="font-size: 1.2rem;">{p.title}</h2>
+            <p style="color: var(--slate); margin-top: 10px; max-width: 540px;">{p.body}</p>
+          </div>
+        </div>
+      </section>
+    </>
+  ))}
+</Base>
