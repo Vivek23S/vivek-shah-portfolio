@@ -35,12 +35,12 @@ const sites = [
 ];
 ---
 <Base title="Field campaigns">
-  <section class="frame" style="padding-top: 40px;">
+  <section class="frame tight" style="padding-top: var(--sp-5);">
     <div class="grid-margin">
-      <div class="margin-col">FIELD LOG</div>
+      <div class="eyebrow">Field log</div>
       <div>
-        <h1 style="font-size: 2rem;">Everywhere the flying happened</h1>
-        <p style="color: var(--slate); margin-top: 12px; max-width: 520px;">
+        <h1 class="page-title">Everywhere the flying happened</h1>
+        <p class="dek" style="margin-top: var(--sp-2); max-width: 520px;">
           Click a marker for details on each deployment. Coordinates for the ship-based
           sites are approximate mission locations, not exact GPS logs.
         </p>
@@ -48,7 +48,7 @@ const sites = [
     </div>
   </section>
 
-  <section class="frame">
+  <section class="frame tight" style="padding-top: 0;">
     <div id="map" style="height: 460px; border-radius: 6px; border: 0.5px solid var(--rule);"></div>
   </section>
 

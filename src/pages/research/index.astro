@@ -3,12 +3,12 @@ import Base from '../../layouts/Base.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <Base title="Research">
-  <section class="frame" style="padding-top: 40px;">
+  <section class="frame tight" style="padding-top: var(--sp-5);">
     <div class="grid-margin">
-      <div class="margin-col">RESEARCH</div>
+      <div class="eyebrow">Research</div>
       <div>
-        <h1 style="font-size: 2rem;">Two ways to sense the wind</h1>
-        <p style="color: var(--slate); margin-top: 16px; max-width: 520px;">
+        <h1 class="page-title">Two ways to sense the wind</h1>
+        <p class="dek" style="margin-top: var(--sp-2); max-width: 520px;">
           My M.S. work measured wind directly, from a hexacopter's own sensor hub.
           My PhD work estimates it indirectly, from how the vehicle's motion responds
           to it &mdash; and asks how vehicle inertia changes that estimate.
@@ -19,34 +19,34 @@ const base = import.meta.env.BASE_URL;
 
   <div class="horizon"></div>
 
-  <section class="frame">
+  <section class="frame tight">
     <div class="grid-margin">
       <div class="margin-col">M.S. &middot; IITM<br/>2022&ndash;2025</div>
       <div>
         <h2>Direct method: UAVs as an alternative to weather balloons</h2>
-        <p style="color: var(--slate); margin-top: 12px; max-width: 520px;">
+        <p class="dek" style="margin-top: var(--sp-2); max-width: 520px;">
           A custom sensor hub on a hexacopter measured wind, temperature, pressure and
           humidity directly during flight &mdash; tested at INS Rajali, aboard the ORV Sagar Nidhi
           in the Bay of Bengal, and off coastal Rameshwaram, up to 2 km altitude.
         </p>
-        <a href={`${base}research/ms/`} style="display:inline-block; margin-top: 12px;">Read more &rarr;</a>
+        <a href={`${base}research/ms/`} style="display:inline-block; margin-top: var(--sp-2);">Read more &rarr;</a>
       </div>
     </div>
   </section>
 
-  <div class="horizon"></div>
+  <div class="rule-sm"></div>
 
-  <section class="frame">
+  <section class="frame tight">
     <div class="grid-margin">
       <div class="margin-col">PhD &middot; UCSC<br/>2025&ndash;present</div>
       <div>
         <h2>Indirect method: inertia, drag, and model-based estimation</h2>
-        <p style="color: var(--slate); margin-top: 12px; max-width: 520px;">
+        <p class="dek" style="margin-top: var(--sp-2); max-width: 520px;">
           Combining SITL simulation, wind tunnel testing at the UC Davis Atmospheric
           Boundary Layer Wind Tunnel, and real flight validation to characterize how
           a multirotor's mass affects wind-estimation accuracy.
         </p>
-        <a href={`${base}research/phd/`} style="display:inline-block; margin-top: 12px;">Read more &rarr;</a>
+        <a href={`${base}research/phd/`} style="display:inline-block; margin-top: var(--sp-2);">Read more &rarr;</a>
       </div>
     </div>
   </section>

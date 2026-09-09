@@ -17,6 +17,14 @@
 
   --measure: 640px;
   --margin-col: 140px;
+
+  /* Spacing scale — use these instead of one-off inline px/rem values */
+  --sp-1: 8px;
+  --sp-2: 16px;
+  --sp-3: 24px;
+  --sp-4: 32px;
+  --sp-5: 48px;
+  --sp-6: 64px;
 }
 
 * {
@@ -33,11 +41,11 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -45,13 +53,40 @@ h1, h2, h3 {
   color: var(--ink);
 }
 
-h1 { font-size: 2.4rem; line-height: 1.15; }
-h2 { font-size: 1.5rem; line-height: 1.25; }
-h3 { font-size: 1.1rem; }
+h1 { font-size: 2.75rem; line-height: 1.1; letter-spacing: -0.02em; }
+h2 { font-size: 1.6rem; line-height: 1.25; }
+h3 { font-size: 1.15rem; line-height: 1.3; }
+h4 { font-size: 1rem; font-weight: 600; }
+
+/* Page (non-home) titles sit a step below the homepage h1 */
+.page-title {
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.subhead {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--sp-1);
+}
 
 p {
-  margin: 0 0 1rem;
+  margin: 0 0 var(--sp-3);
   max-width: var(--measure);
+}
+
+.lede {
+  color: var(--teal);
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-top: var(--sp-1);
+}
+
+.dek {
+  color: var(--slate);
+  max-width: 520px;
 }
 
 a {
@@ -60,6 +95,28 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+
+ul {
+  max-width: var(--measure);
+  padding-left: 0;
+  list-style: none;
+  margin: 0 0 var(--sp-3);
+}
+ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: var(--sp-1);
+  color: var(--ink);
+}
+ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 8px;
+  height: 1.5px;
+  background: var(--brass);
 }
 
 /* ---- Layout shell: narrow margin column + wide content column ---- */
@@ -82,18 +139,26 @@ a:hover {
   .margin-col {
     border-right: none !important;
     border-bottom: 0.5px solid var(--rule);
-    padding-bottom: 12px;
-    margin-bottom: 12px;
+    padding-bottom: var(--sp-2);
+    margin-bottom: var(--sp-2);
   }
 }
 
 .margin-col {
   border-right: 0.5px solid var(--rule);
-  padding-right: 16px;
+  padding-right: var(--sp-2);
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--slate);
   line-height: 1.8;
+}
+
+/* Section eyebrow — sentence case on purpose, the mono treatment is what
+   sets it apart, not shouting in caps */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--slate);
 }
 
 /* ---- Horizon rule: recurring section-break device ---- */
@@ -103,10 +168,18 @@ a:hover {
   margin: 0;
 }
 
+/* Smaller in-content divider, used between stacked blocks within a section
+   rather than between whole sections */
+.rule-sm {
+  height: 0.5px;
+  background: var(--rule);
+  margin: var(--sp-4) 0;
+}
+
 /* ---- Nav ---- */
 .site-nav {
   display: flex;
-  gap: 28px;
+  gap: var(--sp-4);
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -118,10 +191,24 @@ a:hover {
   text-decoration: none;
 }
 
+/* ---- Link row (arrow links under intro copy) ---- */
+.link-row {
+  display: flex;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  margin-top: var(--sp-4);
+}
+
 /* ---- Stat row ---- */
+.stat-grid {
+  display: flex;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
 .stat {
   font-family: var(--font-mono);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--ink);
 }
@@ -129,6 +216,7 @@ a:hover {
   font-size: 0.8rem;
   color: var(--slate);
   font-family: var(--font-body);
+  margin-top: 2px;
 }
 
 /* ---- Dusk section (used for the field/interactive material) ---- */
@@ -136,11 +224,17 @@ a:hover {
   background: var(--dusk);
   color: var(--dusk-ink);
 }
-.dusk h1, .dusk h2, .dusk h3 { color: var(--dusk-ink); }
-.dusk .margin-col { color: #8FA0AC; border-right-color: var(--dusk-rule); }
+.dusk h1, .dusk h2, .dusk h3, .dusk h4 { color: var(--dusk-ink); }
+.dusk .margin-col, .dusk .eyebrow { color: #8FA0AC; border-right-color: var(--dusk-rule); }
+.dusk .dek { color: #A9B7BF; }
 .dusk a { color: #6FCABD; }
 .dusk .horizon { background: var(--brass); }
+.dusk .rule-sm { background: var(--dusk-rule); }
 
 section {
-  padding: 56px 0;
+  padding: var(--sp-6) 0;
 }
+section.tight {
+  padding: var(--sp-5) 0;
+}
+

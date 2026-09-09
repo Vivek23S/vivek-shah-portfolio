@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <Base title="Home">
-  <section class="frame" style="padding-top: 40px;">
+  <section class="frame tight" style="padding-top: var(--sp-5);">
     <div class="grid-margin">
       <div class="margin-col">
         02 / 2026<br/>
@@ -12,15 +12,13 @@ const base = import.meta.env.BASE_URL;
       </div>
       <div>
         <h1>Vivek Shah</h1>
-        <p style="color: var(--teal); font-weight: 500; font-size: 1.05rem; margin-top: 8px;">
-          Estimating wind, from the air, one rotor at a time.
-        </p>
-        <p style="margin-top: 20px; color: var(--slate); max-width: 480px;">
+        <p class="lede">Estimating wind, from the air, one rotor at a time.</p>
+        <p class="dek" style="margin-top: var(--sp-2); max-width: 480px;">
           PhD student in Applied Math at UC Santa Cruz, working on model-based wind estimation
           for small uncrewed aircraft. Previously an M.S. at IIT Madras, flying hexacopters off
           Indian naval vessels to sense the atmosphere directly.
         </p>
-        <div style="margin-top: 28px; display: flex; gap: 24px; font-size: 0.95rem;">
+        <div class="link-row">
           <a href={`${base}research/`}>Research &rarr;</a>
           <a href={`${base}campaigns/`}>Field campaigns &rarr;</a>
           <a href={`${base}publications/`}>CV &amp; publications &rarr;</a>
@@ -31,10 +29,10 @@ const base = import.meta.env.BASE_URL;
 
   <div class="horizon"></div>
 
-  <section class="frame">
+  <section class="frame tight">
     <div class="grid-margin">
-      <div></div>
-      <div style="display: flex; gap: 32px; flex-wrap: wrap;">
+      <div class="eyebrow">By the numbers</div>
+      <div class="stat-grid">
         <div>
           <div class="stat">2.5&ndash;5.5 kg</div>
           <div class="stat-label">inertia range studied, PhD</div>
@@ -60,13 +58,13 @@ const base = import.meta.env.BASE_URL;
   <section class="dusk">
     <div class="frame">
       <div class="grid-margin">
-        <div class="margin-col">FIELD LOG</div>
+        <div class="eyebrow">Field log</div>
         <div>
           <h2>Where the flying happened</h2>
-          <p style="color: #A9B7BF; margin-top: 12px; max-width: 480px;">
+          <p class="dek" style="margin-top: var(--sp-2); max-width: 480px;">
             INS Rajali, the ORV Sagar Kanya and ORV Sagar Nidhi, coastal Rameshwaram,
             and the UC Davis Atmospheric Boundary Layer Wind Tunnel &mdash;
-            an interactive map of each deployment is coming to
+            an interactive map of each deployment is on
             <a href={`${base}campaigns/`}>the campaigns page</a>.
           </p>
         </div>

@@ -30,24 +30,24 @@ const projects = [
 ];
 ---
 <Base title="Projects">
-  <section class="frame" style="padding-top: 40px;">
+  <section class="frame tight" style="padding-top: var(--sp-5);">
     <div class="grid-margin">
-      <div class="margin-col">PROJECTS</div>
+      <div class="eyebrow">Projects</div>
       <div>
-        <h1 style="font-size: 2rem;">Coursework, internships, and things I built along the way</h1>
+        <h1 class="page-title">Coursework, internships, and things I built along the way</h1>
       </div>
     </div>
   </section>
 
   {projects.map((p) => (
     <>
-      <div class="horizon"></div>
-      <section class="frame">
+      <div class="rule-sm"></div>
+      <section class="frame tight" style="padding-top: 0; padding-bottom: var(--sp-4);">
         <div class="grid-margin">
           <div class="margin-col">{p.when}</div>
           <div>
-            <h2 style="font-size: 1.2rem;">{p.title}</h2>
-            <p style="color: var(--slate); margin-top: 10px; max-width: 540px;">{p.body}</p>
+            <h3>{p.title}</h3>
+            <p class="dek" style="margin-top: var(--sp-1); max-width: 540px;">{p.body}</p>
           </div>
         </div>
       </section>

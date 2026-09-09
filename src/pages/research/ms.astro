@@ -3,13 +3,13 @@ import Base from '../../layouts/Base.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <Base title="M.S. Thesis">
-  <section class="frame" style="padding-top: 40px;">
+  <section class="frame tight" style="padding-top: var(--sp-5);">
     <div class="grid-margin">
-      <div class="margin-col">M.S. THESIS<br/>IIT MADRAS<br/>2022&ndash;2025</div>
+      <div class="margin-col">M.S. thesis<br/>IIT Madras<br/>2022&ndash;2025</div>
       <div>
-        <h1 style="font-size: 2rem;">Establishing UAVs as a viable alternative to weather balloons</h1>
+        <h1 class="page-title">Establishing UAVs as a viable alternative to weather balloons</h1>
 
-        <p style="margin-top: 20px; max-width: 560px;">
+        <p class="dek" style="margin-top: var(--sp-3); max-width: 560px;">
           Weather balloons are the standard tool for profiling the lower atmosphere, but
           they drift with the wind, can only be launched once, and give a single vertical
           slice of data. This thesis built a hexacopter-based system that flies a repeatable
@@ -17,29 +17,29 @@ const base = import.meta.env.BASE_URL;
           humidity &mdash; directly, using a custom sensor hub.
         </p>
 
-        <h3 style="margin-top: 32px;">What the system does</h3>
-        <ul style="max-width: 560px; color: var(--ink);">
+        <h3 style="margin-top: var(--sp-4);">What the system does</h3>
+        <ul style="margin-top: var(--sp-2); max-width: 560px;">
           <li>Converts body-frame wind measurements to inertial-frame wind profiles</li>
           <li>Predicts weather-balloon trajectories computationally, for comparison against UAV data</li>
           <li>Reaches up to 2 km altitude on the atmospheric-sampling variant</li>
         </ul>
 
-        <h3 style="margin-top: 32px;">Hardware</h3>
-        <p style="max-width: 560px;">
+        <h3 style="margin-top: var(--sp-4);">Hardware</h3>
+        <p style="margin-top: var(--sp-2); max-width: 560px;">
           Two airframes were built over the course of the project: an early quadcopter,
           then a hexacopter purpose-built for ship-based takeoff and landing (2 kg payload,
           45-minute endurance), and later an advanced hexacopter reaching 10 kg payload,
           60-minute endurance and 5 km altitude capability.
         </p>
 
-        <h3 style="margin-top: 32px;">Field deployments</h3>
-        <div style="display:flex; gap: 32px; flex-wrap: wrap; margin-top: 12px;">
+        <h3 style="margin-top: var(--sp-4);">Field deployments</h3>
+        <div class="stat-grid" style="margin-top: var(--sp-2);">
           <div><div class="stat">INS Rajali</div><div class="stat-label">testing &amp; validation</div></div>
           <div><div class="stat">ORV Sagar Kanya</div><div class="stat-label">Arabian Sea</div></div>
           <div><div class="stat">ORV Sagar Nidhi</div><div class="stat-label">Bay of Bengal</div></div>
           <div><div class="stat">Rameshwaram</div><div class="stat-label">coastal missions</div></div>
         </div>
-        <p style="margin-top: 16px; font-size: 0.9rem; color: var(--slate);">
+        <p class="eyebrow" style="margin-top: var(--sp-2);">
           Photos and flight data from each site are going up on the
           <a href={`${base}campaigns/`}>campaigns page</a>.
         </p>

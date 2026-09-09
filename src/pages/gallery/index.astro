@@ -2,17 +2,17 @@
 import Base from '../../layouts/Base.astro';
 ---
 <Base title="Gallery">
-  <section class="frame" style="padding-top: 40px;">
+  <section class="frame tight" style="padding-top: var(--sp-5);">
     <div class="grid-margin">
-      <div class="margin-col">GALLERY</div>
+      <div class="eyebrow">Gallery</div>
       <div>
-        <h1 style="font-size: 2rem;">Builds, deployments, test flights</h1>
-        <p style="color: var(--slate); margin-top: 12px; max-width: 520px;">
-          Placeholder grid — drop images into <code>public/gallery/</code> and list them
+        <h1 class="page-title">Builds, deployments, test flights</h1>
+        <p class="dek" style="margin-top: var(--sp-2); max-width: 520px;">
+          Placeholder grid &mdash; drop images into <code>public/gallery/</code> and list them
           below to populate this page.
         </p>
 
-        <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-top: 28px;">
+        <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--sp-2); margin-top: var(--sp-4);">
           {Array.from({ length: 6 }).map(() => (
             <div style="aspect-ratio: 4/3; background: var(--paper-dim); border: 0.5px solid var(--rule); border-radius: 4px;"></div>
           ))}
