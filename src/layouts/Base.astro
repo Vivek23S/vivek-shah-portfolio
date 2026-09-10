@@ -31,11 +31,27 @@ const { title, description = 'Vivek Shah — wind estimation for small uncrewed 
     <main>
       <slot />
     </main>
-    <footer class="frame" style="padding: 40px 32px 60px;">
-      <div class="horizon" style="margin-bottom: 20px;"></div>
-      <p style="font-size: 0.85rem; color: var(--slate);">
-        Vivek Shah · Aerospace Engineering / Applied Math · Chennai → Santa Cruz
-      </p>
+    <footer class="dusk">
+      <div class="frame" style="padding: var(--sp-5) 32px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap: wrap; gap: var(--sp-3);">
+          <div>
+            <div class="eyebrow" style="margin-bottom: var(--sp-1);">Get in touch</div>
+            <h3>Vivek Shah</h3>
+            <p class="dek" style="margin-top: var(--sp-1); margin-bottom: 0;">
+              Aerospace/Aeronautical Engineer &middot; Applied Math PhD Student
+            </p>
+          </div>
+          <div style="display:flex; gap: var(--sp-3); font-size: 0.9rem;">
+            <a href="mailto:you@example.com">Email</a>
+            <a href="https://github.com/Vivek23S">GitHub</a>
+            <a href="https://linkedin.com">LinkedIn</a>
+          </div>
+        </div>
+        <div class="rule-sm"></div>
+        <p class="eyebrow" style="margin-bottom: 0;">
+          &copy; 2026 Vivek Shah. Built with Astro.
+        </p>
+      </div>
     </footer>
   </body>
 </html>

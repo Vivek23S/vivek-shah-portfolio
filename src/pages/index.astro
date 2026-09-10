@@ -1,74 +1,77 @@
 ---
 import Base from '../layouts/Base.astro';
-const base = import.meta.env.BASE_URL;
+
+const timeline = [
+  { side: 'right', title: 'PhD, Applied Math', meta: 'UC Santa Cruz · 2025–present' },
+  { side: 'left', title: 'M.S., Aerospace Engineering', meta: 'IIT Madras · 2022–2025' },
+  { side: 'right', title: 'Internship, Airframe Dept.', meta: 'HAL Nashik · Jun 2019' },
+  { side: 'right', title: 'B.Eng., Aeronautical Engineering', meta: 'Silver Oak College · 2016–2020' },
+];
 ---
 <Base title="Home">
-  <section class="frame tight" style="padding-top: var(--sp-5);">
-    <div class="grid-margin">
-      <div class="margin-col">
-        02 / 2026<br/>
-        Chennai &rarr; Santa Cruz<br/>
-        M.S. &rarr; PhD
-      </div>
-      <div>
-        <h1>Vivek Shah</h1>
-        <p class="lede">Estimating wind, from the air, one rotor at a time.</p>
-        <p class="dek" style="margin-top: var(--sp-2); max-width: 480px;">
-          PhD student in Applied Math at UC Santa Cruz, working on model-based wind estimation
-          for small uncrewed aircraft. Previously an M.S. at IIT Madras, flying hexacopters off
-          Indian naval vessels to sense the atmosphere directly.
+  <section class="frame" style="padding-top: 100px;">
+    <div class="summary-block">
+      <div class="accent-line"></div>
+      <div class="summary-content">
+        <h2 style="position: relative; top: 0px; left: -20px; font-size: 2.15rem">Summary</h2>
+        <p class="dek" style="margin-top: 3px; margin-left: -18px; max-width: 1000px;">
+          Placeholder summary text — this is where the polished bio copy goes once it's written. Placeholder summary text — this is where the polished bio copy goes once it's written.Placeholder summary text — this is where the polished bio copy goes once it's written.Placeholder summary text — this is where the polished bio copy goes once it's written.Placeholder summary text — this is where the polished bio copy goes once it's written.Placeholder summary text — this is where the polished bio copy goes once it's written.Placeholder summary text — this is where the polished bio copy goes once it's written.
         </p>
-        <div class="link-row">
-          <a href={`${base}research/`}>Research &rarr;</a>
-          <a href={`${base}campaigns/`}>Field campaigns &rarr;</a>
-          <a href={`${base}publications/`}>CV &amp; publications &rarr;</a>
-        </div>
       </div>
+      <h2 style="position: relative; left: -20px; margin-top: 35px; margin-bottom: 0; font-size: 2.15rem">Timeline</h2>
     </div>
   </section>
 
-  <div class="horizon"></div>
-
-  <section class="frame tight">
-    <div class="grid-margin">
-      <div class="eyebrow">By the numbers</div>
-      <div class="stat-grid">
-        <div>
-          <div class="stat">2.5&ndash;5.5 kg</div>
-          <div class="stat-label">inertia range studied, PhD</div>
+  <section class="frame">
+    <div class="timeline-wrap">
+      <div class="timeline-track"></div>
+      {timeline.map((item) => (
+        <div class="timeline-row">
+          <div class="timeline-content-left">
+            {item.side === 'left' && (
+              <>
+                <div class="stat" style="font-size: 1.05rem;">{item.title}</div>
+                <div class="stat-label">{item.meta}</div>
+              </>
+            )}
+          </div>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content-right">
+            {item.side === 'right' && (
+              <>
+                <div class="stat" style="font-size: 1.05rem;">{item.title}</div>
+                <div class="stat-label">{item.meta}</div>
+              </>
+            )}
+          </div>
         </div>
-        <div>
-          <div class="stat">5 km</div>
-          <div class="stat-label">max altitude, M.S. hexacopter</div>
-        </div>
-        <div>
-          <div class="stat">4</div>
-          <div class="stat-label">field campaign sites</div>
-        </div>
-        <div>
-          <div class="stat">60 min</div>
-          <div class="stat-label">longest flight endurance</div>
-        </div>
-      </div>
+      ))}
     </div>
   </section>
 
-  <div class="horizon"></div>
-
-  <section class="dusk">
-    <div class="frame">
-      <div class="grid-margin">
-        <div class="eyebrow">Field log</div>
-        <div>
-          <h2>Where the flying happened</h2>
-          <p class="dek" style="margin-top: var(--sp-2); max-width: 480px;">
-            INS Rajali, the ORV Sagar Kanya and ORV Sagar Nidhi, coastal Rameshwaram,
-            and the UC Davis Atmospheric Boundary Layer Wind Tunnel &mdash;
-            an interactive map of each deployment is on
-            <a href={`${base}campaigns/`}>the campaigns page</a>.
-          </p>
-        </div>
-      </div>
+  <section class="frame">
+    <h2 style="margin-bottom: var(--sp-3); margin-left: 25px; font-size:2.15em">Explore</h2>
+    <div style="margin-left:25px"; class="module-grid">
+      <a href={`${import.meta.env.BASE_URL}research/`} class="module-tile">
+        <div class="module-thumb" style="background: linear-gradient(135deg, #2F7A72, #16232E);"></div>
+        <div class="module-label">Research</div>
+      </a>
+      <a href={`${import.meta.env.BASE_URL}campaigns/`} class="module-tile">
+        <div class="module-thumb" style="background: linear-gradient(135deg, #B8863D, #16232E);"></div>
+        <div class="module-label">Campaigns</div>
+      </a>
+      <a href={`${import.meta.env.BASE_URL}projects/`} class="module-tile">
+        <div class="module-thumb" style="background: linear-gradient(135deg, #5C6B78, #16232E);"></div>
+        <div class="module-label">Projects</div>
+      </a>
+      <a href={`${import.meta.env.BASE_URL}publications/`} class="module-tile">
+        <div class="module-thumb" style="background: linear-gradient(135deg, #16232E, #2F7A72);"></div>
+        <div class="module-label">Publications</div>
+      </a>
+      <a href={`${import.meta.env.BASE_URL}gallery/`} class="module-tile">
+        <div class="module-thumb" style="background: linear-gradient(135deg, #101820, #B8863D);"></div>
+        <div class="module-label">Gallery</div>
+      </a>
     </div>
   </section>
 </Base>
