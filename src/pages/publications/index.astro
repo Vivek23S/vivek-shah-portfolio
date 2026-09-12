@@ -1,34 +1,74 @@
 ---
 import Base from '../../layouts/Base.astro';
 const base = import.meta.env.BASE_URL;
+
+const publications = [
+  {
+    title: 'Effects of vehicle inertia on model-based wind estimation for multirotor sUASs',
+    authors: 'Vivek Shah, [add co-authors here]',
+    year: '2027',
+    venue: 'AIAA SciTech 2027',
+    status: 'Accepted',
+    abstract: 'Investigates the tradeoff between slower dynamic response and increased drag sensitivity as multirotor mass increases, using SITL simulation, wind tunnel testing, and flight validation.',
+    link: null,
+  },
+  {
+    title: 'Development and deployment of an unmanned aerial system (UAS) for coastal meteorology',
+    authors: 'Vivek Shah, Manikandan Mathur, Bharath Govindarajan',
+    year: '2026',
+    venue: 'Atmospheric Measurement Techniques (EGUsphere preprint)',
+    status: 'Under review',
+    abstract: 'Describes the design and field deployment of a UAS-based system for coastal atmospheric measurement, developed as part of the M.S. thesis work at IIT Madras.',
+    link: 'https://egusphere.copernicus.org/preprints/egusphere-2026-2496/',
+  },
+];
 ---
 <Base title="Publications & CV">
-  <section class="frame tight" style="padding-top: var(--sp-5);">
-    <div class="grid-margin">
-      <div class="eyebrow">Publications</div>
-      <div>
-        <h1 class="page-title">Publications &amp; CV</h1>
+  <section class="frame tight" style="padding-top: 30px;">
+    <h1 class="page-title" style="text-align: center; margin-bottom: var(--sp-5); font-size: 2.3em;">Publications</h1>
+    <p class="dek" style="max-width: 640px; margin: 0 auto; margin-top: -30px; text-align: center;">
+      Papers, preprints, and the latest CV.
+    </p>
+  </section>
 
-        <div style="margin-top: var(--sp-3);">
-          <h3>Effects of vehicle inertia on model-based wind estimation for multirotor sUASs</h3>
-          <p class="eyebrow" style="margin-top: var(--sp-1);">AIAA SciTech Forum, 2027 &middot; accepted</p>
-          <p class="dek" style="margin-top: var(--sp-2); max-width: 540px;">
-            Investigates the tradeoff between slower dynamic response and increased drag
-            sensitivity as multirotor mass increases, using SITL simulation, wind tunnel
-            testing, and flight validation.
-          </p>
+  <div class="horizon"></div>
+
+  <section class="frame tight">
+    {publications.map((pub, i) => (
+      <>
+        <div class="grid-margin">
+          <div class="margin-col">
+            {pub.venue}
+            <br/>
+            {pub.status}
+          </div>
+          <div>
+            <h3>{pub.title}</h3>
+            <p class="eyebrow" style="margin-top: var(--sp-1); margin-bottom: 0;">
+              {pub.authors} &middot; {pub.year}
+            </p>
+            <p class="dek" style="margin-top: var(--sp-2); max-width: 540px;">{pub.abstract}</p>
+            {pub.link && (
+              <a href={pub.link} style="display:inline-block; margin-top: var(--sp-2);">Read paper &rarr;</a>
+            )}
+          </div>
         </div>
+        {i < publications.length - 1 && <div class="rule-sm"></div>}
+      </>
+    ))}
+  </section>
 
-        <div class="rule-sm"></div>
+  <div class="horizon"></div>
 
-        <h3>CV</h3>
-        <p style="margin-top: var(--sp-2);">
-          <a href={`${base}cv-vivek-shah.pdf`}>Download the latest CV (PDF) &rarr;</a>
+  <section class="frame tight">
+    <div class="grid-margin">
+      <div class="eyebrow">CV</div>
+      <div>
+        <h3>Curriculum Vitae</h3>
+        <p class="dek" style="margin-top: var(--sp-2); max-width: 540px;">
+          Full academic and professional history, updated as of September 2026.
         </p>
-        <p class="eyebrow" style="margin-top: var(--sp-1);">
-          Drop your current CV into <code>public/cv-vivek-shah.pdf</code> and this link
-          will work as-is.
-        </p>
+        <a href={`${base}cv-vivek-shah.pdf`} class="cv-download-btn">Download CV (PDF)</a>
       </div>
     </div>
   </section>

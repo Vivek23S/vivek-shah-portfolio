@@ -3,54 +3,118 @@ import Base from '../../layouts/Base.astro';
 
 const projects = [
   {
+    id: 'wind-tunnel-char',
     title: 'Characterization of the wind tunnel',
     when: 'Jan–May 2023 · Coursework',
-    body: 'Measured pressure, velocity, temperature and flow rate with a pitot tube across the test section, then validated the results in ANSYS-Fluent.',
+    thumb: 'linear-gradient(135deg, #2F7A72, #16232E)',
+    excerpt: 'Measured pressure, velocity, temperature and flow rate with a pitot tube across the test section.',
+    full: 'Measured pressure, velocity, temperature and flow rate with a pitot tube at various locations in the test section, then analyzed the data under different flow conditions to assess the tunnel\'s aerodynamic properties. The experiment was validated numerically in ANSYS-Fluent, confirming the measured trends held up against simulation.',
   },
   {
+    id: 'airfoil-flow-viz',
     title: 'Flow visualization over an airfoil',
     when: 'Jan–May 2023 · Coursework',
-    body: 'Smoke-visualized flow over a NACA 0012 airfoil across varying wind speed, angle of attack and Reynolds number, cross-checked against CFD.',
+    thumb: 'linear-gradient(135deg, #B8863D, #16232E)',
+    excerpt: 'Smoke-visualized flow over a NACA 0012 airfoil across varying wind speed, angle of attack and Reynolds number.',
+    full: 'Used a smoke generator in a wind tunnel to visualize flow behavior and separation patterns over a NACA 0012 airfoil, varying wind speed, angle of attack, and Reynolds number. The observed flow characteristics were then cross-checked against a numerical simulation of the same setup in ANSYS-Fluent to validate the experimental results.',
   },
   {
+    id: 'fd-solver',
     title: 'Finite difference solver',
     when: 'Jul–Dec 2022 · Coursework',
-    body: 'A from-scratch finite difference solver for Laplace\u2019s equation with Dirichlet boundary conditions, implementing Jacobi and Gauss–Seidel schemes.',
+    thumb: 'linear-gradient(135deg, #5C6B78, #16232E)',
+    excerpt: 'A from-scratch finite difference solver for Laplace\'s equation with Dirichlet boundary conditions.',
+    full: 'Built a finite difference solver from scratch for Laplace\'s equation under Dirichlet boundary conditions, implementing and comparing multiple iterative schemes including Jacobi iteration and Gauss–Seidel — looking specifically at how convergence speed and accuracy differed between the two approaches.',
   },
   {
+    id: 'light-ga-aircraft',
     title: 'Design of a light general aviation aircraft',
     when: 'Dec 2019–May 2020 · B.Eng. final year project',
-    body: 'Conceptual design of a private business jet — weight estimation, wing optimization for L/D, fuselage and empennage CFD, and an engine sized from first-principles performance calculations rather than an off-the-shelf rating.',
+    thumb: 'linear-gradient(135deg, #16232E, #2F7A72)',
+    excerpt: 'Conceptual design of a private business jet, from weight estimation through CFD-validated wing and empennage design.',
+    full: 'Conducted the conceptual design and initial phase calculations for a private business jet — starting from aircraft weight estimation, then running iterative wing calculations to optimize lift-to-drag ratio. Built a CAD model of the wing and ran CFD simulations across multiple angles of attack, developed a fuselage incorporating bulkheads and internal structure with accompanying FEM analysis, and analyzed empennage aerodynamics via CFD to optimize airflow interaction with the wing. The engine was sized from first-principles performance calculations rather than picked from an off-the-shelf rating, and the project also included an interior cabin layout for space and usability.',
   },
   {
+    id: 'su30-wingbox',
     title: 'Wing box structural evaluation, Su-30 MKI',
     when: 'Jun 2019 · HAL internship',
-    body: 'Built a detailed 3D wing box model and ran a full FEM workflow — HyperMesh for meshing, Nastran for stress/strain/deformation analysis, Patran for post-processing.',
+    thumb: 'linear-gradient(135deg, #101820, #B8863D)',
+    excerpt: 'A full FEM workflow on a detailed 3D wing box model — meshing, stress analysis, and post-processing.',
+    full: 'Built a detailed 3D model of the Su-30 MKI wing box, incorporating critical structural elements such as ribs and spars, then ran a complete finite element analysis workflow: pre-processing and meshing in HyperMesh, stress/strain/deformation analysis in Nastran, and post-processing and results interpretation in Patran. The findings were compiled into a comprehensive report on wing box structural properties and optimization.',
   },
 ];
 ---
 <Base title="Projects">
-  <section class="frame tight" style="padding-top: var(--sp-5);">
-    <div class="grid-margin">
-      <div class="eyebrow">Projects</div>
-      <div>
-        <h1 class="page-title">Coursework, internships, and things I built along the way</h1>
-      </div>
+  <section class="frame tight" style="padding-top: 30px;">
+    <h1 class="page-title" style="text-align: center; margin-bottom: var(--sp-5); font-size: 2.3em;">Projects</h1>
+    <p class="dek" style="max-width: 640px; margin: 0 auto; margin-top: -30px; text-align: center;">
+      Coursework, internships, and things I built along the way &mdash; click any card for the full writeup.
+    </p>
+  </section>
+
+  <section class="frame">
+    <div class="project-grid">
+      {projects.map((p) => (
+        <button class="project-card" data-project={p.id} type="button">
+          <div class="project-thumb" style={`background: ${p.thumb};`}></div>
+          <div class="project-card-body">
+            <div class="eyebrow">{p.when}</div>
+            <h3 style="margin-top: 4px;">{p.title}</h3>
+            <p class="dek" style="margin-top: var(--sp-1); margin-bottom: 0;">{p.excerpt}</p>
+            <span class="project-readmore">Read more &rarr;</span>
+          </div>
+        </button>
+      ))}
     </div>
   </section>
 
-  {projects.map((p) => (
-    <>
-      <div class="rule-sm"></div>
-      <section class="frame tight" style="padding-top: 0; padding-bottom: var(--sp-4);">
-        <div class="grid-margin">
-          <div class="margin-col">{p.when}</div>
-          <div>
-            <h3>{p.title}</h3>
-            <p class="dek" style="margin-top: var(--sp-1); max-width: 540px;">{p.body}</p>
-          </div>
-        </div>
-      </section>
-    </>
-  ))}
+  <div class="project-modal-backdrop" id="project-modal-backdrop">
+    <div class="project-modal">
+      <button class="project-modal-close" id="project-modal-close" type="button" aria-label="Close">&times;</button>
+      <div class="project-modal-thumb" id="project-modal-thumb"></div>
+      <div class="project-modal-body">
+        <div class="eyebrow" id="project-modal-meta"></div>
+        <h2 id="project-modal-title" style="margin-top: 4px;"></h2>
+        <p class="dek" id="project-modal-full" style="margin-top: var(--sp-2); max-width: 100%;"></p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" define:vars={{ projects }}>
+    const backdrop = document.getElementById('project-modal-backdrop');
+    const closeBtn = document.getElementById('project-modal-close');
+    const modalThumb = document.getElementById('project-modal-thumb');
+    const modalMeta = document.getElementById('project-modal-meta');
+    const modalTitle = document.getElementById('project-modal-title');
+    const modalFull = document.getElementById('project-modal-full');
+
+    function openProject(id) {
+      const project = projects.find((p) => p.id === id);
+      if (!project) return;
+      modalThumb.style.background = project.thumb;
+      modalMeta.textContent = project.when;
+      modalTitle.textContent = project.title;
+      modalFull.textContent = project.full;
+      backdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.project-card').forEach((card) => {
+      card.addEventListener('click', () => openProject(card.getAttribute('data-project')));
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+  <section class="frame" style="padding-bottom: var(--sp-6);"></section>
 </Base>

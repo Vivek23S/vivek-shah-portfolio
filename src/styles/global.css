@@ -411,3 +411,112 @@ section.tight {
   background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
 }
 
+
+
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--sp-4);
+}
+
+.project-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--paper);
+  border: 0.5px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-thumb {
+  height: 140px;
+}
+
+.project-card-body {
+  padding: var(--sp-3);
+}
+
+.project-readmore {
+  display: inline-block;
+  margin-top: var(--sp-2);
+  color: var(--teal);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 24, 32, 0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-3);
+  z-index: 100;
+}
+.project-modal-backdrop.open {
+  display: flex;
+}
+
+.project-modal {
+  position: relative;
+  background: var(--paper);
+  border-radius: 10px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.project-modal-thumb {
+  height: 200px;
+  border-radius: 10px 10px 0 0;
+}
+
+.project-modal-body {
+  padding: var(--sp-4);
+}
+
+.project-modal-close {
+  position: absolute;
+  top: var(--sp-2);
+  right: var(--sp-2);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+.project-modal-close:hover {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.cv-download-btn {
+  display: inline-block;
+  margin-top: var(--sp-3);
+  padding: 10px 20px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.cv-download-btn:hover {
+  background: var(--teal);
+  text-decoration: none;
+}
