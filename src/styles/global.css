@@ -622,6 +622,7 @@ section.tight {
   .profile-text {
     left: 165px;
     bottom: -18px;
+    font-size: 0.5em;
   }
   .profile-text h1 {
     font-size: 1.5rem;
